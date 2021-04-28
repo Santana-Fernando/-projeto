@@ -10,7 +10,7 @@ export const Home = () => {
   const [posts, setPosts] = useState([])
   const [allPosts, setAllPosts] = useState([])
   const [page, setPage] = useState(0)
-  const [postsPerPages] = useState(10)
+  const [postsPerPages] = useState(2)
   const [searchValue, setSearchValue] = useState('')
 
   const noMorePosts = page + postsPerPages >= allPosts.length
@@ -22,18 +22,17 @@ export const Home = () => {
       )
 
     }) : posts
-  
-    
-    
+
+
+
     const load = useCallback(async (page, postsPerPages) => {
       const postsAndPhotos = await loadPosts()
-      
+
       setPosts(postsAndPhotos.slice(page, postsPerPages))
       setAllPosts(postsAndPhotos)
     }, [])
 
     useEffect(() => {
-      console.log(new Date().toLocaleString('pt-br'))
       load(0, postsPerPages)
     }, [load, postsPerPages])
 
@@ -103,7 +102,7 @@ export const Home = () => {
 
   //    const postsAndPhotos = await loadPosts()
 
-  //    this.setState({ 
+  //    this.setState({
   //      posts: postsAndPhotos.slice(page, postsPerPages),
   //      allPosts: postsAndPhotos
   //    })
@@ -127,7 +126,7 @@ export const Home = () => {
 //     const { postsPerPages, allPosts, posts, page, searchValue  } = this.state
 //     const noMorePosts = page + postsPerPages >= allPosts.length
 
-//     const filteredPosts = !!searchValue  ? 
+//     const filteredPosts = !!searchValue  ?
 //     allPosts.filter(post => {
 //      return post.title.toLowerCase().includes(
 //       searchValue.toLowerCase()
@@ -142,7 +141,7 @@ export const Home = () => {
 //               <h1>{searchValue}</h1>
 //             </>
 //           )}
-//           <TextIput 
+//           <TextIput
 //             onChange={this.handleChange}
 //             value={searchValue}
 //           />
