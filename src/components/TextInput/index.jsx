@@ -2,7 +2,7 @@ import { Component } from "react";
 import './styles.css'
 export class TextIput extends Component {
     render(){
-        const { onChange, value } = this.props
+        const { onChange, value, placeholder } = this.props
         return (
         
             <input 
@@ -10,6 +10,7 @@ export class TextIput extends Component {
                 onChange={onChange}
                 value={value}
                 type="search"
+                placeholder="type your search"
             />
         )
     }
